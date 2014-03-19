@@ -30,9 +30,9 @@ setup(name = 'zope.copy',
       author_email='zope-dev@zope.org',
       description='Pluggable object copying mechanism',
       long_description=(
-          read('README.txt')
+          read('README.rst')
           + '\n\n' +
-          read('CHANGES.txt')
+          read('CHANGES.rst')
           ),
       keywords = "zope3 copying cloning",
       classifiers = [
