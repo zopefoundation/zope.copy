@@ -17,7 +17,8 @@ import os
 from setuptools import setup, find_packages
 
 def read(*rnames):
-    return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
+    with open(os.path.join(os.path.dirname(__file__), *rnames)) as f:
+        return f.read()
 
 TESTS_REQUIRE = [
     'zope.location',
@@ -29,11 +30,7 @@ setup(name = 'zope.copy',
       author='Zope Foundation and Contributors',
       author_email='zope-dev@zope.org',
       description='Pluggable object copying mechanism',
-      long_description=(
-          read('README.rst')
-          + '\n\n' +
-          read('CHANGES.rst')
-          ),
+      long_description=read('README.rst') + '\n\n' + read('CHANGES.rst'),
       keywords = "zope3 copying cloning",
       classifiers = [
           'Development Status :: 5 - Production/Stable',
