@@ -1,8 +1,16 @@
 ``zope.copy``
 =============
 
+.. image:: https://pypip.in/version/zope.copy/badge.svg?style=flat
+    :target: https://pypi.python.org/pypi/zope.copy/
+    :alt: Latest Version
+
 .. image:: https://travis-ci.org/zopefoundation/zope.copy.png?branch=master
         :target: https://travis-ci.org/zopefoundation/zope.copy
+
+.. image:: https://readthedocs.org/projects/zopecopy/badge/?version=latest
+        :target: http://zopecopy.readthedocs.org/en/latest/
+        :alt: Documentation Status
 
 This package provides a pluggable mechanism for copying persistent objects.
 
