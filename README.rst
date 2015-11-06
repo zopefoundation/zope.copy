@@ -1,7 +1,7 @@
 ``zope.copy``
 =============
 
-.. image:: https://pypip.in/version/zope.copy/badge.svg?style=flat
+.. image:: https://img.shields.io/pypi/v/zope.copy.svg
     :target: https://pypi.python.org/pypi/zope.copy/
     :alt: Latest Version
 
