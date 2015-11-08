@@ -1,0 +1,6 @@
+include *.py
+include *.rst
+include *.txt
+include buildout.cfg
+include tox.ini
+recursive-include docs *.py *.bat *.rst Makefile .gitignore
