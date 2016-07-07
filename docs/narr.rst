@@ -328,17 +328,12 @@ them.
    :pyobject: Other
    :prepend: # zope.copy.examples.Other
 
-.. literalinclude:: ../src/zope/copy/examples.py
-   :pyobject: root
-   :prepend: # zope.copy.examples.root
-
 .. doctest::
 
    >>> from zope.copy.examples import Other
-   >>> from zope.copy.examples import root
    >>> s = Other()
    >>> s_copy = zope.copy.copy(s)
-   >>> s_copy.__parent__ is root
+   >>> s_copy.__parent__ is Other.root
    True
    >>> s_copy.__name__ == 'something'
    True
