@@ -47,10 +47,8 @@ class Something(object): #pragma NO COVER
     pass
 
 
-root = object()
-
-
 class Other(object): #pragma NO COVER
+    root = object()  # immutable
     @_apply
     def __name__():
         def fget(self):
@@ -61,7 +59,7 @@ class Other(object): #pragma NO COVER
     @_apply
     def __parent__():
         def fget(self):
-            return root
+            return self.__class__.root
         def fset(self, value):
             raise AttributeError
         return property(fget, fset)
