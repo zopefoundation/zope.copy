@@ -16,7 +16,7 @@ Changes
 4.0.2 (2014-03-19)
 ------------------
 
-- Add support for Python 3,3 and 3.4.
+- Add support for Python 3.3 and 3.4.
 
 - Update ``boostrap.py`` to version 2.2.
 
