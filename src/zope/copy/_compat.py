@@ -16,27 +16,25 @@ import sys
 
 PY3 = sys.version_info[0] >= 3
 
-if PY3: #pragma NO COVER
+try:
+    from cPickle import Pickler
+    from cPickle import Unpickler
+except ImportError:
     from pickle import Pickler
     from pickle import Unpickler
 
-    def _get_pid(pickler, oid):
-        return pickler.memo.copy()[oid][0] #stupid proxy
+if PY3:
+    def _memo(pickler):
+        # Python 3 uses a "PicklerMemoProxy" which is not subscriptable
+        # by itself
+        return pickler.memo.copy()
+else:
+    from operator import attrgetter
 
-    def _get_obj(unpickler, pid):
-        return unpickler.memo.copy()[pid]
+    _memo = attrgetter('memo')
 
-else: #pragma NO COVER
-    from cPickle import Pickler
-    from cPickle import Unpickler
+def _get_pid(pickler, oid):
+    return _memo(pickler)[oid][0]
 
-    def _get_pid(pickler, oid):
-        return pickler.memo[oid][0]
-
-    def _get_obj(unpickler, pid):
-        return unpickler.memo[pid]
-
-def _apply(func, args=(), kw=None): # 'apply' is missing in Py3k
-    if kw is None:
-        kw = {}
-    return func(*args, **kw)
+def _get_obj(unpickler, pid):
+    return _memo(unpickler)[pid]

@@ -18,7 +18,7 @@ class _Base(object):
     def setUp(self):
         from zope.interface.interface import adapter_hooks
         self._restore = adapter_hooks[:]
-        
+
     def tearDown(self):
         from zope.interface.interface import adapter_hooks
         adapter_hooks[:] = self._restore
@@ -176,7 +176,7 @@ class CopyPersistentTests(_Base, unittest.TestCase):
             def __init__(self, context):
                 self.context = context
             def __call__(self, obj, register):
-                return None
+                raise AssertionError("Not called")
         def _adapt(iface, obj):
             if iface is ICopyHook:
                 return Hook(obj)
@@ -225,8 +225,4 @@ def _registerAdapterHook(func):
 
 
 def test_suite():
-    return unittest.TestSuite((
-        unittest.makeSuite(Test_clone),
-        unittest.makeSuite(Test_copy),
-        unittest.makeSuite(CopyPersistentTests),
-    ))
+    return unittest.defaultTestLoader.loadTestsFromName(__name__)
