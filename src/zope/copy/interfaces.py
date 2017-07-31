@@ -17,16 +17,16 @@ import zope.interface
 
 class ResumeCopy(Exception):
     """Don't use the hook, resume the copy.
-    
+
     This is a special exception, raised from the copy hook to signal
     copier that it should continue copying the object recursively.
-    
+
     See ICopyHook.__call__ method documentation.
     """
 
 class ICopyHook(zope.interface.Interface):
     """An adapter to an object that is being copied"""
-    
+
     def __call__(toplevel, register):
         """Given the top-level object that is being copied, return the
         version of the adapted object that should be used in the new copy.
@@ -38,6 +38,6 @@ class ICopyHook(zope.interface.Interface):
         callable with ``register``.  This callable must take a single
         argument: a callable that, given an object from the original,
         returns the equivalent in the copy.
-        
+
         See README.txt for more explanation.
         """

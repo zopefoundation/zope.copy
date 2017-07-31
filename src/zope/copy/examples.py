@@ -15,9 +15,8 @@
 """
 import zope.location.location
 
-from zope.copy._compat import _apply
 
-class Demo(object): #pragma NO COVER
+class Demo(object):
 
     _frozen = None
 
@@ -28,11 +27,11 @@ class Demo(object): #pragma NO COVER
         self._frozen = Data()
 
 
-class Data(object): #pragma NO COVER
+class Data(object):
     pass
 
 
-class Subobject(zope.location.location.Location): #pragma NO COVER
+class Subobject(zope.location.location.Location):
 
     def __init__(self):
         self.counter = 0
@@ -43,23 +42,11 @@ class Subobject(zope.location.location.Location): #pragma NO COVER
         return res
 
 
-class Something(object): #pragma NO COVER
+class Something(object):
     pass
 
 
-class Other(object): #pragma NO COVER
+class Other(object):
     root = object()  # immutable
-    @_apply
-    def __name__():
-        def fget(self):
-            return 'something'
-        def fset(self, value):
-            raise AttributeError
-        return property(fget, fset)
-    @_apply
-    def __parent__():
-        def fget(self):
-            return self.__class__.root
-        def fset(self, value):
-            raise AttributeError
-        return property(fget, fset)
+    __name__ = property(lambda _self: 'something')
+    __parent__ = property(lambda self: self.__class__.root)

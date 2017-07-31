@@ -40,7 +40,7 @@ def clone(obj):
             pid = _get_pid(pickler, id(obj))
             try:
                 return _get_obj(unpickler, pid)
-            except KeyError: #pragma NO COVER pypy
+            except KeyError: # pragma: no cover (PyPy)
                 return _get_obj(unpickler, str(pid))
         for call in persistent.registered:
             call(convert)
@@ -65,7 +65,7 @@ def copy(obj):
 class CopyPersistent(object):
     """A helper class providing the persisntent_id and persistent_load
     functions for pickling and unpickling respectively.
-    
+
     It uses the adaptation to ICopyHook to allow control over object
     copying. See README.txt for more information on that mechanism.
     """
@@ -89,12 +89,12 @@ class CopyPersistent(object):
                 pass
             else:
                 pid = len(self.others_by_pid)
-    
+
                 # The following is needed to overcome a bug
                 # in pickle.py. The pickle checks the boolean value
                 # of the id, rather than whether it is None.
                 pid += 1
-    
+
                 self.pids_by_id[oid] = pid
                 self.others_by_pid[pid] = res
                 return pid

@@ -1,32 +1,35 @@
-Changes
-=======
+=========
+ Changes
+=========
 
 4.1.0 (unreleased)
-------------------
+==================
 
-- Drop support for Python 2.6 and 3.2.
+- Drop support for Python 2.6, 3.2 and 3.3.
 
-- Add support for Python 3.5.
+- Add support for Python 3.5 and 3.6.
+
+- Restore ``zope.component`` as a testing requirement for running doctests.
 
 4.0.3 (2014-12-26)
-------------------
+==================
 
 - Add support for PyPy3.
 
 4.0.2 (2014-03-19)
-------------------
+==================
 
 - Add support for Python 3.3 and 3.4.
 
 - Update ``boostrap.py`` to version 2.2.
 
 4.0.1 (2012-12-31)
-------------------
+==================
 
 - Flesh out PyPI Trove classifiers.
 
 4.0.0 (2012-06-13)
-------------------
+==================
 
 - Add support for Python 3.2.
 
@@ -51,7 +54,7 @@ Changes
 - Include tests of the LocationCopyHook from zope.location.
 
 3.5.0 (2009-02-09)
-------------------
+==================
 
 - Initial release. The functionality was extracted from ``zc.copy`` to
   provide a generic object copying mechanism with minimal dependencies.
