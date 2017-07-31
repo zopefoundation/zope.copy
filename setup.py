@@ -28,7 +28,7 @@ TESTS_REQUIRE = [
 ]
 
 setup(name='zope.copy',
-      version='4.1.0.dev0',
+      version='4.1.0',
       author='Zope Foundation and Contributors',
       author_email='zope-dev@zope.org',
       description='Pluggable object copying mechanism',
