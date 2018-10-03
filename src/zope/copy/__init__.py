@@ -19,6 +19,7 @@ from zope.copy._compat import Unpickler
 from zope.copy._compat import _get_pid
 from zope.copy._compat import _get_obj
 
+
 def clone(obj):
     """Clone an object by pickling and unpickling it"""
     with tempfile.TemporaryFile() as tmp:
@@ -35,16 +36,18 @@ def clone(obj):
         unpickler.persistent_load = persistent.load
 
         res = unpickler.load()
+
         # run the registered cleanups
         def convert(obj):
             pid = _get_pid(pickler, id(obj))
             try:
                 return _get_obj(unpickler, pid)
-            except KeyError: # pragma: no cover (PyPy)
+            except KeyError:  # pragma: no cover (PyPy)
                 return _get_obj(unpickler, str(pid))
         for call in persistent.registered:
             call(convert)
         return res
+
 
 def copy(obj):
     """Clone an object, clearing the __name__ and __parent__ attribute
@@ -61,6 +64,7 @@ def copy(obj):
         except AttributeError:
             pass
     return res
+
 
 class CopyPersistent(object):
     """A helper class providing the persisntent_id and persistent_load
