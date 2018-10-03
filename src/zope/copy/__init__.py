@@ -26,7 +26,7 @@ def clone(obj):
         persistent = CopyPersistent(obj)
 
         # Pickle the object to a temporary file
-        pickler = Pickler(tmp, 2)
+        pickler = Pickler(tmp, protocol=-1)
         pickler.persistent_id = persistent.id
         pickler.dump(obj)
 
