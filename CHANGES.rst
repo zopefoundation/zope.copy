@@ -5,7 +5,8 @@
 4.1.1 (unreleased)
 ==================
 
-- Nothing changed yet.
+- Use the latest and fastest protocol when pickling and unpickling and object
+  during the clone operation
 
 
 4.1.0 (2017-07-31)
