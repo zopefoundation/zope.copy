@@ -8,6 +8,8 @@
 - Use the latest and fastest protocol when pickling and unpickling and object
   during the clone operation
 
+- Add support for Python 3.7.
+
 
 4.1.0 (2017-07-31)
 ==================
