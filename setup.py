@@ -37,7 +37,7 @@ setup(name='zope.copy',
       keywords="zope3 copying cloning",
       classifiers=[
           'Development Status :: 5 - Production/Stable',
-          'Framework :: Zope3',
+          'Framework :: Zope :: 3',
           'Intended Audience :: Developers',
           'License :: OSI Approved :: Zope Public License',
           'Operating System :: OS Independent',
