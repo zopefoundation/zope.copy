@@ -10,8 +10,8 @@
         :target: https://pypi.org/project/zope.copy/
         :alt: Supported Python versions
 
-.. image:: https://travis-ci.org/zopefoundation/zope.copy.svg?branch=master
-        :target: https://travis-ci.org/zopefoundation/zope.copy
+.. image:: https://travis-ci.com/zopefoundation/zope.copy.svg?branch=master
+        :target: https://travis-ci.com/zopefoundation/zope.copy
 
 .. image:: https://coveralls.io/repos/github/zopefoundation/zope.copy/badge.svg?branch=master
         :target: https://coveralls.io/github/zopefoundation/zope.copy?branch=master
