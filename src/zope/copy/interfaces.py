@@ -15,6 +15,7 @@
 """
 import zope.interface
 
+
 class ResumeCopy(Exception):
     """Don't use the hook, resume the copy.
 
@@ -23,6 +24,7 @@ class ResumeCopy(Exception):
 
     See ICopyHook.__call__ method documentation.
     """
+
 
 class ICopyHook(zope.interface.Interface):
     """An adapter to an object that is being copied"""

@@ -14,27 +14,30 @@
 
 import sys
 
+
 PY3 = sys.version_info[0] >= 3
 
 try:
     from cPickle import Pickler
-    from cPickle import Unpickler
+    from cPickle import Unpickler  # pragma: no cover
 except ImportError:
-    from pickle import Pickler
-    from pickle import Unpickler
+    from pickle import Pickler  # noqa: F401 imported but unused
+    from pickle import Unpickler  # noqa: F401 imported but unused
 
 if PY3:
     def _memo(pickler):
         # Python 3 uses a "PicklerMemoProxy" which is not subscriptable
         # by itself
         return pickler.memo.copy()
-else:
+else:  # pragma: no cover
     from operator import attrgetter
 
     _memo = attrgetter('memo')
 
+
 def _get_pid(pickler, oid):
     return _memo(pickler)[oid][0]
+
 
 def _get_obj(unpickler, pid):
     return _memo(unpickler)[pid]
