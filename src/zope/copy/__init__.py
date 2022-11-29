@@ -16,8 +16,8 @@ import tempfile
 from zope.copy import interfaces
 from zope.copy._compat import Pickler
 from zope.copy._compat import Unpickler
-from zope.copy._compat import _get_pid
 from zope.copy._compat import _get_obj
+from zope.copy._compat import _get_pid
 
 
 def clone(obj):
