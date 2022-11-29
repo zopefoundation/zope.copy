@@ -10,8 +10,8 @@
         :target: https://pypi.org/project/zope.copy/
         :alt: Supported Python versions
 
-.. image:: https://travis-ci.com/zopefoundation/zope.copy.svg?branch=master
-        :target: https://travis-ci.com/zopefoundation/zope.copy
+.. image:: https://github.com/zopefoundation/zope.copy/actions/workflows/tests.yml/badge.svg
+        :target: https://github.com/zopefoundation/zope.copy/actions/workflows/tests.yml
 
 .. image:: https://coveralls.io/repos/github/zopefoundation/zope.copy/badge.svg?branch=master
         :target: https://coveralls.io/github/zopefoundation/zope.copy?branch=master
@@ -22,4 +22,4 @@
 
 This package provides a pluggable mechanism for copying persistent objects.
 
-Documentation is hosted at https://zopecopy.readthedocs.io/en/latest/
+Documentation is hosted at https://zopecopy.readthedocs.io/
