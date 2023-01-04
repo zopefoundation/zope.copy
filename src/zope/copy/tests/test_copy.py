@@ -14,7 +14,7 @@
 import unittest
 
 
-class _Base(object):
+class _Base:
 
     def setUp(self):
         from zope.interface.interface import adapter_hooks
@@ -48,7 +48,7 @@ class Test_clone(_Base, unittest.TestCase):
         demo = Demo()
         demo.freeze()
 
-        class Hook(object):
+        class Hook:
             def __init__(self, context):
                 self.context = context
 
@@ -97,7 +97,7 @@ class Test_clone(_Base, unittest.TestCase):
         self.assertEqual(o.subobject(), 1)
         self.assertEqual(o.subobject(), 2)
 
-        class Hook(object):
+        class Hook:
             def __init__(self, context):
                 self.context = context
 
@@ -141,7 +141,7 @@ class Test_copy(_Base, unittest.TestCase):
         global Foo  # make unpicklable
         parent = object()
 
-        class Foo(object):
+        class Foo:
             @property
             def __parent__(self):
                 return parent
@@ -185,7 +185,7 @@ class CopyPersistentTests(_Base, unittest.TestCase):
         cp = self._makeOne(obj)
         cp.pids_by_id[id(obj)] = 'PID'
 
-        class Hook(object):
+        class Hook:
             def __init__(self, context):
                 self.context = context
 
@@ -204,7 +204,7 @@ class CopyPersistentTests(_Base, unittest.TestCase):
         obj = object()
         cp = self._makeOne(obj)
 
-        class Hook(object):
+        class Hook:
             def __init__(self, context):
                 self.context = context
 
@@ -222,7 +222,7 @@ class CopyPersistentTests(_Base, unittest.TestCase):
         obj = object()
         cp = self._makeOne(obj)
 
-        class Hook(object):
+        class Hook:
             def __init__(self, context):
                 self.context = context
 

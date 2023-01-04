@@ -66,7 +66,7 @@ def copy(obj):
     return res
 
 
-class CopyPersistent(object):
+class CopyPersistent:
     """A helper class providing the persisntent_id and persistent_load
     functions for pickling and unpickling respectively.
 
