@@ -16,7 +16,7 @@
 import zope.location.location
 
 
-class Demo(object):
+class Demo:
 
     _frozen = None
 
@@ -27,7 +27,7 @@ class Demo(object):
         self._frozen = Data()
 
 
-class Data(object):
+class Data:
     pass
 
 
@@ -42,11 +42,11 @@ class Subobject(zope.location.location.Location):
         return res
 
 
-class Something(object):
+class Something:
     pass
 
 
-class Other(object):
+class Other:
     root = object()  # immutable
     __name__ = property(lambda _self: 'something')
     __parent__ = property(lambda self: self.__class__.root)
