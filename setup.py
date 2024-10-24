@@ -64,6 +64,7 @@ setup(name='zope.copy',
       python_requires='>=3.8',
       install_requires=[
           'setuptools',
+          'zodbpickle',
           'zope.interface',
       ],
       include_package_data=True,

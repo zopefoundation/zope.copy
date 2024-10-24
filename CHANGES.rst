@@ -5,9 +5,10 @@
 5.0 (unreleased)
 ================
 
-- Add support for Python 3.13.
+- Add support for Python 3.12, 3.13.
 
-- Add support for Python 3.12.
+- Depend on ``zodbpickle`` instead of Python's ``pickle``, to be able to
+  support Python 3.13 properly.
 
 - Drop support for Python 2.7, 3.5, 3.6, 3.7.
 
