@@ -37,8 +37,8 @@ class Test_clone(_Base, unittest.TestCase):
         demo.freeze()
         self.assertTrue(demo.isFrozen())
         copied = self._callFUT(demo)
-        self.assertFalse(copied is demo)
-        self.assertTrue(isinstance(copied, Demo))
+        self.assertIsNot(copied, demo)
+        self.assertIsInstance(copied, Demo)
         self.assertTrue(copied.isFrozen())
 
     def test_w_simple_hook(self):
@@ -60,8 +60,8 @@ class Test_clone(_Base, unittest.TestCase):
                 return Hook(obj)
         _registerAdapterHook(_adapt)
         copied = self._callFUT(demo)
-        self.assertFalse(copied is demo)
-        self.assertTrue(isinstance(copied, Demo))
+        self.assertIsNot(copied, demo)
+        self.assertIsInstance(copied, Demo)
         self.assertFalse(copied.isFrozen())
 
     def test_subobject_wo_post_copy_hook(self):
@@ -73,12 +73,12 @@ class Test_clone(_Base, unittest.TestCase):
         s = Subobject()
         o.subobject = s
         locate(s, o, 'subobject')
-        self.assertTrue(s.__parent__ is o)
+        self.assertIs(s.__parent__, o)
         self.assertEqual(o.subobject(), 0)
         self.assertEqual(o.subobject(), 1)
         self.assertEqual(o.subobject(), 2)
         c = self._callFUT(o)
-        self.assertTrue(c.subobject.__parent__ is c)
+        self.assertIs(c.subobject.__parent__, c)
         self.assertEqual(c.subobject(), 3)
         self.assertEqual(o.subobject(), 3)
 
@@ -92,7 +92,7 @@ class Test_clone(_Base, unittest.TestCase):
         s = Subobject()
         o.subobject = s
         locate(s, o, 'subobject')
-        self.assertTrue(s.__parent__ is o)
+        self.assertIs(s.__parent__, o)
         self.assertEqual(o.subobject(), 0)
         self.assertEqual(o.subobject(), 1)
         self.assertEqual(o.subobject(), 2)
@@ -114,7 +114,7 @@ class Test_clone(_Base, unittest.TestCase):
                 return Hook(obj)
         _registerAdapterHook(_adapt)
         c = self._callFUT(o)
-        self.assertTrue(c.subobject.__parent__ is c)
+        self.assertIs(c.subobject.__parent__, c)
         self.assertEqual(c.subobject(), 0)
         self.assertEqual(o.subobject(), 3)
 
@@ -132,8 +132,8 @@ class Test_copy(_Base, unittest.TestCase):
         demo.__parent__ = parent
         demo.__name__ = 'demo'
         copied = self._callFUT(demo)
-        self.assertFalse(copied is demo)
-        self.assertTrue(isinstance(copied, Demo))
+        self.assertIsNot(copied, demo)
+        self.assertIsInstance(copied, Demo)
         self.assertEqual(copied.__parent__, None)
         self.assertEqual(copied.__name__, None)
 
@@ -151,9 +151,9 @@ class Test_copy(_Base, unittest.TestCase):
                 return 'foo'
         foo = Foo()
         copied = self._callFUT(foo)
-        self.assertFalse(copied is foo)
-        self.assertTrue(isinstance(copied, Foo))
-        self.assertTrue(copied.__parent__ is parent)
+        self.assertIsNot(copied, foo)
+        self.assertIsInstance(copied, Foo)
+        self.assertIs(copied.__parent__, parent)
         self.assertEqual(copied.__name__, 'foo')
 
 
@@ -169,7 +169,7 @@ class CopyPersistentTests(_Base, unittest.TestCase):
     def test_ctor(self):
         obj = object()
         cp = self._makeOne(obj)
-        self.assertTrue(cp.toplevel is obj)
+        self.assertIs(cp.toplevel, obj)
         self.assertEqual(cp.pids_by_id, {})
         self.assertEqual(cp.others_by_pid, {})
         self.assertEqual(cp.registered, [])

@@ -12,12 +12,8 @@
 #
 ##############################################################################
 
-try:
-    from cPickle import Pickler
-    from cPickle import Unpickler  # pragma: no cover
-except ModuleNotFoundError:
-    from pickle import Pickler  # noqa: F401 imported but unused
-    from pickle import Unpickler  # noqa: F401 imported but unused
+from zodbpickle.pickle import Pickler  # noqa: F401 imported but unused
+from zodbpickle.pickle import Unpickler  # noqa: F401 imported but unused
 
 
 def _memo(pickler):
