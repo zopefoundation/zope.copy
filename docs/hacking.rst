@@ -91,16 +91,16 @@ you can see how well the tests cover the code:
    ............
    Name                   Stmts   Miss  Cover   Missing
    ----------------------------------------------------
-   zope.copy                 59      0   100%   
-   zope.copy._compat          6      0   100%   
-   zope.copy.examples         4      0   100%   
-   zope.copy.interfaces       5      0   100%   
+   zope.copy                 59      0   100%
+   zope.copy._compat          6      0   100%
+   zope.copy.examples         4      0   100%
+   zope.copy.interfaces       5      0   100%
    ----------------------------------------------------
-   TOTAL                     74      0   100%   
+   TOTAL                     74      0   100%
    ----------------------------------------------------------------------
    Ran 12 tests in 0.062s
 
-   OK  
+   OK
 
 
 Building the documentation
@@ -190,12 +190,12 @@ Using :mod:`tox`
 Running Tests on Multiple Python Versions
 -----------------------------------------
 
-`tox <http://tox.testrun.org/latest/>`_ is a Python-based test automation
+`tox <https://tox.wiki/>`_ is a Python-based test automation
 tool designed to run tests against multiple Python versions.  It creates
 a ``virtualenv`` for each configured version, installs the current package
 and configured dependencies into each ``virtualenv``, and then runs the
 configured commands.
-   
+
 :mod:`zope.copy` configures the following :mod:`tox` environments via
 its ``tox.ini`` file:
 

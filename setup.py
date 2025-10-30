@@ -54,7 +54,7 @@ setup(name='zope.copy',
           'Programming Language :: Python :: Implementation :: PyPy',
           'Topic :: Database',
       ],
-      url='http://github.com/zopefoundation/zope.copy',
+      url='https://github.com/zopefoundation/zope.copy',
       license='ZPL-2.1',
       python_requires='>=3.9',
       install_requires=[

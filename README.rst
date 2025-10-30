@@ -17,7 +17,7 @@
         :target: https://coveralls.io/github/zopefoundation/zope.copy?branch=master
 
 .. image:: https://readthedocs.org/projects/zopecopy/badge/?version=latest
-        :target: http://zopecopy.readthedocs.org/en/latest/
+        :target: https://zopecopy.readthedocs.org/en/latest/
         :alt: Documentation Status
 
 This package provides a pluggable mechanism for copying persistent objects.
