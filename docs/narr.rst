@@ -16,7 +16,7 @@ and the :func:`copy` wrapper that sets :attr:`__parent__` and
 when working with Zope's located objects (see :mod:`zope.location` package).
 The :func:`copy` function actually calls the :func:`clone` function, so
 we'll use the first one in the examples below. We'll also look a bit at
-their differences in the end of this document. 
+their differences in the end of this document.
 
 The :func:`clone` function (and thus the :func:`copy` function that wraps it)
 uses pickling to copy the object and all its subobjects recursively.
@@ -215,7 +215,7 @@ place.
    >>> zope.location.location.locate(image, root, 'image.jpg')
 
    >>> content.cover = image
-  
+
 Without any hooks, the image object will be cloned as well:
 
 .. doctest::
@@ -227,7 +227,7 @@ Without any hooks, the image object will be cloned as well:
 That's not what we'd expect though, so, let's provide a copy hook
 to deal with that. The copy hook for this case is provided by zope.location
 package, but we'll create one from scratch as we want to check out the
-usage of the ResumeCopy. 
+usage of the ResumeCopy.
 
 .. doctest::
 
@@ -350,7 +350,7 @@ object that's being copied.
 To see the problem, imagine we want to copy an
 :class:`~zope.location.interfaces.ILocation` object that
 contains an attribute-based reference to another ILocation object
-and the referenced object is not contained inside object being copied. 
+and the referenced object is not contained inside object being copied.
 
 Without this hook, the referenced object will be cloned:
 
